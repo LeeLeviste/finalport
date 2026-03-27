@@ -4,6 +4,7 @@ import TabBar from "./components/TabBar";
 import Editor from "./components/Editor";
 import StatusBar from "./components/StatusBar";
 import AsciiPanel from "./components/AsciiPanel";
+import GalleryWindow from "./components/GalleryWindow";
 import Dock from "./components/Dock";
 import resume from "./data/resume";
 import styles from "./styles/App.module.css";
@@ -22,8 +23,10 @@ function App() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 960);
   const [idePosition, setIdePosition] = useState({ x: 420, y: 64 });
   const [cmdPosition, setCmdPosition] = useState({ x: 48, y: 64 });
+  const [galleryPosition, setGalleryPosition] = useState({ x: 188, y: 124 });
   const [isIdeVisible, setIsIdeVisible] = useState(true);
   const [isCmdVisible, setIsCmdVisible] = useState(true);
+  const [isGalleryVisible, setIsGalleryVisible] = useState(false);
 
   const tabs = useMemo(
     () => openTabKeys.map((key) => FILES.find((file) => file.key === key)).filter(Boolean),
@@ -67,7 +70,13 @@ function App() {
 
     const originX = event.clientX;
     const originY = event.clientY;
-    const startPosition = windowType === "ide" ? idePosition : cmdPosition;
+    let startPosition = cmdPosition;
+    if (windowType === "ide") {
+      startPosition = idePosition;
+    }
+    if (windowType === "gallery") {
+      startPosition = galleryPosition;
+    }
 
     const handleMouseMove = (moveEvent) => {
       const deltaX = moveEvent.clientX - originX;
@@ -77,6 +86,11 @@ function App() {
 
       if (windowType === "ide") {
         setIdePosition({ x: nextX, y: nextY });
+        return;
+      }
+
+      if (windowType === "gallery") {
+        setGalleryPosition({ x: nextX, y: nextY });
         return;
       }
 
@@ -161,11 +175,22 @@ function App() {
         </section>
       )}
 
+      {isGalleryVisible && (
+        <section
+          className={`${styles.floatingWindow} ${styles.galleryWindowHost}`}
+          style={isMobile ? undefined : { left: `${galleryPosition.x}px`, top: `${galleryPosition.y}px` }}
+        >
+          <GalleryWindow onDragStart={makeDragStartHandler("gallery")} />
+        </section>
+      )}
+
       <Dock
         isIdeOpen={isIdeVisible}
         isCmdOpen={isCmdVisible}
+        isGalleryOpen={isGalleryVisible}
         onToggleIde={() => setIsIdeVisible((prev) => !prev)}
         onToggleCmd={() => setIsCmdVisible((prev) => !prev)}
+        onToggleGallery={() => setIsGalleryVisible((prev) => !prev)}
         githubUrl={resume.github}
         linkedinUrl={resume.linkedin}
       />

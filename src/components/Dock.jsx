@@ -1,6 +1,15 @@
 import styles from "../styles/Dock.module.css";
 
-function Dock({ isIdeOpen, isCmdOpen, onToggleIde, onToggleCmd, githubUrl, linkedinUrl }) {
+function Dock({
+  isIdeOpen,
+  isCmdOpen,
+  isGalleryOpen,
+  onToggleIde,
+  onToggleCmd,
+  onToggleGallery,
+  githubUrl,
+  linkedinUrl
+}) {
   return (
     <nav className={styles.dock} aria-label="Desktop dock">
       <button type="button" className={styles.dockItem} onClick={onToggleIde} aria-label="Portfolio">
@@ -13,6 +22,12 @@ function Dock({ isIdeOpen, isCmdOpen, onToggleIde, onToggleCmd, githubUrl, linke
         <i className="codicon codicon-terminal" aria-hidden="true" />
         <span className={styles.tooltip}>CMD</span>
         {isCmdOpen && <span className={styles.indicator} aria-hidden="true" />}
+      </button>
+
+      <button type="button" className={styles.dockItem} onClick={onToggleGallery} aria-label="Gallery">
+        <i className="codicon codicon-device-camera" aria-hidden="true" />
+        <span className={styles.tooltip}>Gallery</span>
+        {isGalleryOpen && <span className={styles.indicator} aria-hidden="true" />}
       </button>
 
       <a

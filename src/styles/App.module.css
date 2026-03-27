@@ -44,6 +44,10 @@
   z-index: 3;
 }
 
+.galleryWindowHost {
+  z-index: 9;
+}
+
 .titleBar {
   height: 36px;
   display: grid;
