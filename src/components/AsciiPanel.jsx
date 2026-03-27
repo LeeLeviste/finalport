@@ -15,7 +15,7 @@ const getFittedFontSize = (asciiText, availableWidth, maxSize, minSize) => {
   return Math.max(minSize, Math.min(maxSize, rawSize));
 };
 
-function AsciiPanel({ onDragStart }) {
+function AsciiPanel({ onDragStart, resume }) {
   const panelRef = useRef(null);
   const [nameFontSize, setNameFontSize] = useState(7);
   const [portraitFontSize, setPortraitFontSize] = useState(5);
@@ -74,6 +74,13 @@ function AsciiPanel({ onDragStart }) {
         </pre>
 
         <div style={{ fontFamily: "var(--runtime-font-mono)", fontSize: "12px", lineHeight: 1.8 }}>
+          <p style={{ color: "var(--syntax-blue)" }}>C:\\Users\\LeeRyan&gt; type README.md</p>
+          <p style={{ color: "var(--text-bright)" }}>name: {resume.name}</p>
+          <p style={{ color: "var(--text-bright)" }}>role: {resume.role}</p>
+          <p style={{ color: "var(--text-bright)" }}>location: {resume.location}</p>
+          <p style={{ color: "var(--text-bright)" }}>{resume.greeting}</p>
+          <p style={{ color: "var(--text-muted)", lineHeight: 1.5 }}>{resume.about}</p>
+          <br />
           <p style={{ color: "var(--syntax-blue)" }}>C:\\Users\\LeeRyan&gt; whoami</p>
           <p style={{ color: "var(--text-bright)" }}>Lee Ryan Leviste</p>
           <br />

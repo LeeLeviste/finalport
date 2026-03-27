@@ -27,13 +27,13 @@
 
 .cmdWindow {
   width: min(350px, calc(100vw - 2.4rem));
-  height: min(640px, calc(100vh - 2.4rem));
+  height: min(670px, calc(100vh - 2.4rem));
   z-index: 2;
 }
 
 .ideWindow {
   width: min(1000px, calc(100vw - 2.4rem));
-  height: min(640px, calc(100vh - 2.4rem));
+  height: min(600px, calc(100vh - 2.4rem));
   border-radius: 16px;
   border: 1px solid var(--border);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);

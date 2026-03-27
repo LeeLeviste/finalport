@@ -44,7 +44,7 @@
 }
 
 .languageLine {
-  color: var(--syntax-blue);
+  color: var(--syntax-green);
 }
 
 .mlLine {
@@ -52,5 +52,5 @@
 }
 
 .toolLine {
-  color: var(--syntax-yellow);
+  color: var(--syntax-green);
 }

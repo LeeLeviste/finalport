@@ -20,14 +20,22 @@ function Contact({ resume }) {
         </article>
 
         <article className={styles.card}>
-          <h3>Location</h3>
-          <p>{resume.location}</p>
+          <h3>Github</h3>
+          <a href={resume.github} target="_blank" rel="noreferrer">
+            {resume.github}
+          </a>
         </article>
 
         <article className={styles.card}>
-          <h3>Activity</h3>
-          <p>{resume.activities[0]?.title}</p>
-          <p>{resume.activities[0]?.organization}</p>
+          <h3>Linkedin</h3>
+          <a href={resume.linkedin} target="_blank" rel="noreferrer">
+            {resume.linkedin}
+          </a>
+        </article>
+
+        <article className={styles.card}>
+          <h3>Location</h3>
+          <p>{resume.location}</p>
         </article>
       </div>
     </section>

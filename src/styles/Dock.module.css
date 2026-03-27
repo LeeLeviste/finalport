@@ -1,0 +1,100 @@
+.dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 60;
+}
+
+.dockItem {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #f5f7ff;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.dockItem:hover {
+  transform: scale(1.4);
+}
+
+.linkedinIcon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(16, 18, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f5f7ff;
+  border-radius: 8px;
+  padding: 0.24rem 0.44rem;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease;
+}
+
+.dockItem:hover .tooltip {
+  opacity: 1;
+}
+
+.indicator {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 960px) {
+  .dock {
+    bottom: 14px;
+    padding: 7px 12px;
+    gap: 8px;
+  }
+
+  .dockItem {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .linkedinIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dockItem:hover {
+    transform: scale(1.2);
+  }
+}

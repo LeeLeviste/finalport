@@ -7,6 +7,8 @@ const resume = {
     "Computer Science student focused on machine learning systems, retrieval-augmented applications, and production-ready web engineering.",
   email: "lraleviste@gmail.com",
   phone: "+63 9663187746",
+  github: "https://github.com/LeeLeviste",
+  linkedin: "https://www.linkedin.com/in/lee-ryan-leviste-410688391/",
   internshipStatus: "Open to Internships",
   campusTag: "GDG on Campus · Mapua",
   education: {
