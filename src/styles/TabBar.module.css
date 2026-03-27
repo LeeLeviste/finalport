@@ -1,0 +1,116 @@
+.tabBar {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  height: 31px;
+  padding: 0;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  background: #252526;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  min-width: 144px;
+  max-width: 234px;
+  border-right: 1px solid var(--border);
+  background: var(--tab-inactive);
+  position: relative;
+  animation: slideIn 180ms ease;
+  opacity: 0.72;
+}
+
+.activeTab {
+  background: var(--tab-active);
+  opacity: 1;
+}
+
+.activeTab::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--syntax-blue);
+}
+
+.tabButton {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.64rem;
+  padding: 0 0.45rem;
+  height: 100%;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 1;
+  cursor: pointer;
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.70rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 0.32rem;
+  opacity: 0;
+  transition: opacity 120ms ease, background 120ms ease;
+}
+
+.closeButton:hover {
+  color: #f1f5f9;
+  background: rgba(71, 85, 105, 0.5);
+}
+
+.tab:hover .closeButton,
+.activeTab .closeButton {
+  opacity: 1;
+}
+
+.fileIcon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--syntax-blue);
+  background: rgba(79, 193, 255, 0.1);
+  border: 1px solid rgba(79, 193, 255, 0.4);
+  font-size: 0.49rem;
+  text-transform: uppercase;
+}
+
+.fileName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .tab {
+    min-width: 135px;
+  }
+}

@@ -1,0 +1,56 @@
+.editor {
+  --editor-font-size: 0.76rem;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  background: var(--bg);
+  animation: fadeIn 280ms ease;
+}
+
+.gutter {
+  border-right: 1px solid var(--border);
+  background: #1f1f1f;
+  padding: 0.45rem 0.4rem;
+  display: grid;
+  align-content: start;
+  gap: 0.16rem;
+}
+
+.lineNumber {
+  font-size: var(--editor-font-size);
+  line-height: 1.35;
+  text-align: right;
+  color: var(--text-dim);
+  user-select: none;
+}
+
+.content {
+  padding: 0.55rem 1rem 0.8rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .editor {
+    grid-template-columns: 1fr;
+  }
+
+  .gutter {
+    display: none;
+  }
+
+  .content {
+    padding: 0.45rem 0.75rem 0.75rem;
+  }
+}

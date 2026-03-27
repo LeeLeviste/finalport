@@ -1,0 +1,47 @@
+.activityBar {
+  width: 50px;
+  background: #11151f;
+  border-right: 1px solid #20293a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0;
+}
+
+.topItems,
+.bottomItem {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.item {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-left: 2px solid transparent;
+  background: transparent;
+  color: #7f8ea8;
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 140ms ease, background 140ms ease;
+}
+
+.item:hover {
+  color: #d4def0;
+  background: #1b2231;
+}
+
+.active {
+  color: #f8fbff;
+  border-left-color: #56a6ff;
+  background: #1b2231;
+}
+
+@media (max-width: 960px) {
+  .activityBar {
+    display: none;
+  }
+}

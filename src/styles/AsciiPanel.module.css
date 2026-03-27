@@ -1,0 +1,115 @@
+.window {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  font-family: var(--runtime-font-mono);
+}
+
+.titleBar {
+  height: 30px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid var(--border);
+  background: #000000;
+  color: var(--text-muted);
+  font-family: var(--runtime-font-mono);
+  font-size: 12px;
+  user-select: none;
+  cursor: move;
+}
+
+.windowControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.46rem;
+}
+
+.control {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.controlClose {
+  background: #ff5f56;
+}
+
+.controlMinimize {
+  background: #ffbd2e;
+}
+
+.controlMaximize {
+  background: #27c93f;
+}
+
+.titleText {
+  text-align: center;
+}
+
+.titleSpacer {
+  width: 56px;
+}
+
+.panel {
+  padding: 16px;
+  overflow: hidden;
+}
+
+.asciiName,
+.asciiPortrait {
+  margin: 8px 0;
+  line-height: 1;
+  overflow: hidden;
+  max-width: 100%;
+  font-family: var(--runtime-font-mono);
+}
+
+.asciiName {
+  color: #7aa2c7;
+}
+
+.asciiPortrait {
+  color: #7aa2c7;
+}
+
+.terminalBody p {
+  margin: 0;
+}
+
+.cursor {
+  color: var(--text-bright);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .titleBar {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 960px) {
+  .window {
+    border-radius: 10px;
+  }
+}

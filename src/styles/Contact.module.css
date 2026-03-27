@@ -1,0 +1,53 @@
+.panel {
+  font-size: var(--editor-font-size);
+  padding: 0.5rem 0.75rem 1rem;
+  background: transparent;
+  font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+.header {
+  margin-bottom: 0.9rem;
+}
+
+.overline {
+  margin: 0;
+  color: #6a9955;
+  font-size: var(--editor-font-size);
+  letter-spacing: 0.01em;
+}
+
+.header h2 {
+  margin: 0.25rem 0 0;
+  font-size: var(--editor-font-size);
+  color: #4fc1ff;
+}
+
+.grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.card {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.card h3 {
+  margin: 0 0 0.25rem;
+  font-size: var(--editor-font-size);
+  color: #dcdcaa;
+}
+
+.card p,
+.card a {
+  margin: 0.2rem 0 0;
+  color: #9cdcfe;
+  font-size: var(--editor-font-size);
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #c586c0;
+}

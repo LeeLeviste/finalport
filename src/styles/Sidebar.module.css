@@ -1,0 +1,161 @@
+.sidebar {
+  padding: 0.25rem 0;
+  border-right: 1px solid var(--border);
+  background: var(--sidebar);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 0;
+  overflow: auto;
+}
+
+.explorerHeader {
+  padding: 0.2rem 0.65rem;
+}
+
+.explorerTitle {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.projectFolder {
+  margin: 0.15rem 0 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  color: var(--text);
+}
+
+.mobileHeader {
+  display: none;
+}
+
+.fileTreeWrap {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.treeTitle {
+  margin: 0;
+  padding: 0.25rem 0.65rem;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.fileTree {
+  list-style: none;
+  margin: 0;
+  padding: 0.1rem 0;
+  display: grid;
+  gap: 0;
+}
+
+.folderItem {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.6rem;
+  color: var(--text-dim);
+  font-size: 0.7rem;
+}
+
+.chevron {
+  color: var(--text-dim);
+  font-size: 0.62rem;
+}
+
+.folderLabel {
+  color: var(--text);
+  font-size: 0.72rem;
+}
+
+.fileItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.45rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 0.28rem 0.6rem;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  border-left: 2px solid transparent;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.fileItem div,
+.fileItem i {
+  align-self: center;
+}
+
+.nestedItem {
+  padding-left: 1.6rem;
+}
+
+.fileItem:hover {
+  background: #2a2d2e;
+}
+
+.fileLabel {
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.7rem;
+}
+
+.active {
+  background: #37373d;
+  border-left-color: var(--syntax-blue);
+}
+
+.closeButton {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.9);
+  color: #dbeafe;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  padding: 0.34rem 0.6rem;
+}
+
+.mobileTitle {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #cad5e8;
+}
+
+@media (max-width: 960px) {
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(86vw, 300px);
+    z-index: 20;
+    transform: translateX(-102%);
+    transition: transform 220ms ease;
+  }
+
+  .open {
+    transform: translateX(0);
+  }
+
+  .mobileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

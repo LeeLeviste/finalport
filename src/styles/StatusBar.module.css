@@ -1,0 +1,39 @@
+.statusBar {
+  min-height: 26px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+  background: #007acc;
+  color: #f3f8ff;
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 0.66rem;
+}
+
+.section {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.16rem 0.48rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.section:last-child {
+  border-right: none;
+}
+
+.clock {
+  justify-self: end;
+}
+
+@media (max-width: 640px) {
+  .statusBar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .section:nth-child(2) {
+    display: none;
+  }
+}

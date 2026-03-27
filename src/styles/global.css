@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1e1e1e;
+  --panel: #1f1f1f;
+  --sidebar: #252526;
+  --tab-active: #1e1e1e;
+  --tab-inactive: #2d2d2d;
+  --titlebar: #2a2d33;
+  --border: #2d2d30;
+  --card: rgba(255, 255, 255, 0.035);
+  --text: #d4d4d4;
+  --text-dim: #858585;
+  --text-muted: #9a9a9a;
+  --text-bright: #f2f2f2;
+  --syntax-blue: #4fc1ff;
+  --syntax-green: #6a9955;
+  --syntax-yellow: #dcdcaa;
+  --syntax-orange: #ce9178;
+  --runtime-font-mono: "Cascadia Mono", "Cascadia Code", "JetBrains Mono", "Consolas", monospace;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Cascadia Code", "JetBrains Mono", "Consolas", "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
