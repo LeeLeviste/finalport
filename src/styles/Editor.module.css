@@ -41,8 +41,15 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .editor {
+    --editor-font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor {
+    --editor-font-size: 0.72rem;
     grid-template-columns: 1fr;
   }
 

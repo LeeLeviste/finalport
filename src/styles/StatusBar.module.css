@@ -9,7 +9,7 @@
   background: #007acc;
   color: #f3f8ff;
   font-family: "JetBrains Mono", "Consolas", monospace;
-  font-size: 0.66rem;
+  font-size: clamp(0.62rem, 0.6rem + 0.16vw, 0.68rem);
 }
 
 .section {
@@ -28,7 +28,7 @@
   justify-self: end;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .statusBar {
     grid-template-columns: 1fr auto;
   }

@@ -108,6 +108,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .panel {
+    overflow: auto;
+    overflow-wrap: break-word;
+  }
+}
+
 @media (max-width: 960px) {
   .window {
     border-radius: 10px;

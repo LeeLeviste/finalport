@@ -18,15 +18,22 @@ const FILES = [
 
 function App() {
   const [activeKey, setActiveKey] = useState("projects");
-  const [openTabKeys, setOpenTabKeys] = useState(["projects"]);
+  const [openTabKeys, setOpenTabKeys] = useState(["projects", "skills", "education", "contact"]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 960);
+  const [viewportWidth, setViewportWidth] = useState(() => window.innerWidth);
   const [idePosition, setIdePosition] = useState({ x: 420, y: 64 });
   const [cmdPosition, setCmdPosition] = useState({ x: 48, y: 64 });
   const [galleryPosition, setGalleryPosition] = useState({ x: 188, y: 124 });
   const [isIdeVisible, setIsIdeVisible] = useState(true);
-  const [isCmdVisible, setIsCmdVisible] = useState(true);
+  const [isCmdVisible, setIsCmdVisible] = useState(() => {
+    const width = window.innerWidth;
+    return width > 1024;
+  });
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
+
+  const isMobile = viewportWidth <= 768;
+  const isTablet = viewportWidth > 768 && viewportWidth <= 1024;
+  const isCompactLayout = viewportWidth <= 1024;
 
   const tabs = useMemo(
     () => openTabKeys.map((key) => FILES.find((file) => file.key === key)).filter(Boolean),
@@ -56,15 +63,19 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 960);
+      setViewportWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleToggleCmd = () => {
+    setIsCmdVisible((prev) => !prev);
+  };
+
   const makeDragStartHandler = (windowType) => (event) => {
-    if (isMobile) {
+    if (isCompactLayout) {
       return;
     }
 
@@ -107,11 +118,13 @@ function App() {
   };
 
   return (
-    <div className={styles.appShell}>
-      {isCmdVisible && (
+    <div
+      className={`${styles.appShell} ${isMobile ? styles.mobileLayout : ""} ${isTablet ? styles.tabletLayout : ""}`}
+    >
+      {isMobile && isCmdVisible && (
         <section
           className={`${styles.floatingWindow} ${styles.cmdWindow}`}
-          style={isMobile ? undefined : { left: `${cmdPosition.x}px`, top: `${cmdPosition.y}px` }}
+          style={isCompactLayout ? undefined : { left: `${cmdPosition.x}px`, top: `${cmdPosition.y}px` }}
         >
           <AsciiPanel onDragStart={makeDragStartHandler("cmd")} resume={resume} />
         </section>
@@ -120,7 +133,7 @@ function App() {
       {isIdeVisible && (
         <section
           className={`${styles.floatingWindow} ${styles.ideWindow}`}
-          style={isMobile ? undefined : { left: `${idePosition.x}px`, top: `${idePosition.y}px` }}
+          style={isCompactLayout ? undefined : { left: `${idePosition.x}px`, top: `${idePosition.y}px` }}
         >
           <header className={styles.titleBar} onMouseDown={makeDragStartHandler("ide")}>
             <div className={styles.windowControls}>
@@ -145,17 +158,6 @@ function App() {
             {sidebarOpen && <button type="button" className={styles.backdrop} onClick={() => setSidebarOpen(false)} aria-label="Close menu" />}
 
             <section className={styles.mainPanel}>
-              <div className={styles.mobileTopBar}>
-                <button
-                  type="button"
-                  className={styles.mobileMenuButton}
-                  onClick={() => setSidebarOpen((prev) => !prev)}
-                  aria-label="Toggle sidebar"
-                >
-                  Menu
-                </button>
-              </div>
-
               <div className={styles.editorWorkbench}>
                 <TabBar
                   tabs={tabs}
@@ -175,10 +177,19 @@ function App() {
         </section>
       )}
 
+      {!isMobile && isCmdVisible && (
+        <section
+          className={`${styles.floatingWindow} ${styles.cmdWindow} ${isTablet ? styles.tabletCmdWindow : ""}`}
+          style={isCompactLayout ? undefined : { left: `${cmdPosition.x}px`, top: `${cmdPosition.y}px` }}
+        >
+          <AsciiPanel onDragStart={makeDragStartHandler("cmd")} resume={resume} />
+        </section>
+      )}
+
       {isGalleryVisible && (
         <section
           className={`${styles.floatingWindow} ${styles.galleryWindowHost}`}
-          style={isMobile ? undefined : { left: `${galleryPosition.x}px`, top: `${galleryPosition.y}px` }}
+          style={isCompactLayout ? undefined : { left: `${galleryPosition.x}px`, top: `${galleryPosition.y}px` }}
         >
           <GalleryWindow onDragStart={makeDragStartHandler("gallery")} />
         </section>
@@ -189,7 +200,7 @@ function App() {
         isCmdOpen={isCmdVisible}
         isGalleryOpen={isGalleryVisible}
         onToggleIde={() => setIsIdeVisible((prev) => !prev)}
-        onToggleCmd={() => setIsCmdVisible((prev) => !prev)}
+        onToggleCmd={handleToggleCmd}
         onToggleGallery={() => setIsGalleryVisible((prev) => !prev)}
         githubUrl={resume.github}
         linkedinUrl={resume.linkedin}

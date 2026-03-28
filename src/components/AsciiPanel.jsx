@@ -80,22 +80,6 @@ function AsciiPanel({ onDragStart, resume }) {
           <p style={{ color: "var(--text-bright)" }}>location: {resume.location}</p>
           <p style={{ color: "var(--text-bright)" }}>{resume.greeting}</p>
           <p style={{ color: "var(--text-muted)", lineHeight: 1.5 }}>{resume.about}</p>
-          <br />
-          <p style={{ color: "var(--syntax-blue)" }}>C:\\Users\\LeeRyan&gt; whoami</p>
-          <p style={{ color: "var(--text-bright)" }}>Lee Ryan Leviste</p>
-          <br />
-          <p style={{ color: "var(--syntax-blue)" }}>C:\\Users\\LeeRyan&gt; role</p>
-          <p style={{ color: "var(--text-bright)" }}>CS Student · AI Enthusiast</p>
-          <br />
-          <p style={{ color: "var(--syntax-blue)" }}>C:\\Users\\LeeRyan&gt; status</p>
-          <p style={{ color: "var(--syntax-green)" }}>Open to Internships</p>
-          <br />
-          <p style={{ color: "var(--syntax-blue)" }}>C:\\Users\\LeeRyan&gt; org</p>
-          <p style={{ color: "var(--text-bright)" }}>GDG on Campus · Mapua</p>
-          <br />
-          <p style={{ color: "var(--syntax-blue)" }}>
-            C:\\Users\\LeeRyan&gt; <span className={styles.cursor}>_</span>
-          </p>
         </div>
       </div>
     </aside>
