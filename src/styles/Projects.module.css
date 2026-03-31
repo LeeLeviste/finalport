@@ -71,6 +71,17 @@
   line-height: 1.45;
 }
 
+.projectImage {
+  display: block;
+  width: min(100%, 28rem);
+  height: 12rem;
+  margin: 0.45rem auto 0.3rem;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #2f3542;
+  border-radius: 0.25rem;
+}
+
 .projectCard ul {
   margin: 0;
   padding-left: 1.1rem;

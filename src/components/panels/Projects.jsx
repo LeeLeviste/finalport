@@ -14,6 +14,14 @@ function Projects({ resume }) {
             <h3>- {project.name}</h3>
             <p className={styles.stack}>{project.stack}</p>
             <p className={styles.description}>{project.description}</p>
+            {project.image && (
+              <img
+                className={styles.projectImage}
+                src={project.image}
+                alt={`${project.name} preview`}
+                loading="lazy"
+              />
+            )}
           </article>
         ))}
       </div>
