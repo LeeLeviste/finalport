@@ -26,13 +26,42 @@ function Projects({ resume }) {
                 </a>
               </p>
             )}
-            {project.image && (
-              <img
-                className={styles.projectImage}
-                src={project.image}
-                alt={`${project.name} preview`}
-                loading="lazy"
-              />
+            {project.images?.length > 0 && (
+              <div className={styles.projectImageRow}>
+                {project.images.map((imageSrc, index) => (
+                  <a
+                    key={`${project.name}-${index}`}
+                    className={styles.projectImageLink}
+                    href={imageSrc}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${project.name} preview ${index + 1}`}
+                  >
+                    <img
+                      className={`${styles.projectImage} ${styles.projectImageSplit} ${project.imageLayout === "wide" ? styles.projectImageWide : ""}`}
+                      src={imageSrc}
+                      alt={`${project.name} preview ${index + 1}`}
+                      loading="lazy"
+                    />
+                  </a>
+                ))}
+              </div>
+            )}
+            {project.image && !project.images?.length && (
+              <a
+                className={styles.projectImageLink}
+                href={project.image}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.name} preview`}
+              >
+                <img
+                  className={styles.projectImage}
+                  src={project.image}
+                  alt={`${project.name} preview`}
+                  loading="lazy"
+                />
+              </a>
             )}
           </article>
         ))}

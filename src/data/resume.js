@@ -38,6 +38,16 @@ const resume = {
         image: "/projects/Project_5.png"
       },
       {
+        name: "Habol : Track Calories Together",
+        description:
+          "Mobile calorie and meal tracker with personalized daily goals for better nutrition and fitness habits.",
+        stack: "Mobile App · Nutrition Tracking",
+        linkLabel: "Click here.",
+        linkUrl: "https://apkpure.com/p/com.chibilorie.app",
+        imageLayout: "wide",
+        images: ["/projects/Habol.jpg", "/projects/Habol2.jpg"]
+      },
+      {
         name: "Weld Defect Detection and Segmentation",
         description:
           "YOLOv12 pipeline for weld defect instance segmentation across 94,973 labeled instances, reaching mAP50 0.818 and published at ICISS 2026.",
