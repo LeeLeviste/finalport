@@ -14,6 +14,18 @@ function Projects({ resume }) {
             <h3>- {project.name}</h3>
             <p className={styles.stack}>{project.stack}</p>
             <p className={styles.description}>{project.description}</p>
+            {project.linkUrl && (
+              <p className={styles.projectLinkWrap}>
+                <a
+                  className={styles.projectLink}
+                  href={project.linkUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {project.linkLabel || "Click here."}
+                </a>
+              </p>
+            )}
             {project.image && (
               <img
                 className={styles.projectImage}

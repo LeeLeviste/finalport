@@ -71,6 +71,19 @@
   line-height: 1.45;
 }
 
+.projectLinkWrap {
+  margin: 0 0 0.35rem;
+}
+
+.projectLink {
+  color: #4ec9b0;
+  text-underline-offset: 0.12rem;
+}
+
+.projectLink:hover {
+  color: #7fe7d3;
+}
+
 .projectImage {
   display: block;
   width: min(100%, 28rem);
